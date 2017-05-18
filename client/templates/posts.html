@@ -1,45 +1,64 @@
-<li>
-    <input ng-model = "filterSearch" type="search" placeholder="Filter">
-</li>
+<div class = "container">
 
-<div>Sort by:
-</div>
-<select ng-model = "$ctrl.filtering" ng-change = "$ctrl.filterPosts()" id="sort">
-<option value = "price">Price</option>
-<option value = "date">Date Added</option>
+  <label class="labels">Sort by</label>
+<select class="browser-default" ng-model = "$ctrl.filtering" ng-change = "$ctrl.filterPosts()" id="sort">
+  <option value="" disabled selected>Choose your option</option>
+  <option value="price">Price</option>
+  <option value="date">Date Added</option>
 </select>
+
 <div>
-  <div ng-repeat="post in $ctrl.posts | orderBy:$ctrl.sorted | filter: filterSearch">
-    <div ng-model="$ctrl.post.title">
+    <input class="labels" ng-model = "filterSearch" type="search" placeholder="Filter By Title">
+</div>
+<div class="row">
+<div class="col s12 m12 l12">
+  <div class = "card-panel hoverable center blue darken-3" ng-repeat="post in $ctrl.posts | orderBy:$ctrl.sorted | filter: filterSearch">
+    <div class="card-title"ng-model="$ctrl.post.title">
       {{post.title}}
     </div>
     <div ng-model="$ctrl.post.image">
-      <img width = "200px"src="{{post.item_image}}">
+      <img width = "300px"src="{{post.item_image}}">
     </div>
-    <div ng-model="$ctrl.post.description">
+    <div class="card-content desc" ng-model="$ctrl.post.description">
       {{post.description}}
-          <button ui-sref="edit({ id:post.id})">Edit Post</button>
     </div>
-    <div ng-model="$ctrl.post.price">
-      {{post.price}}
+    <div ng-model="$ctrl.post.price" class="desc">
+      ${{post.price}}
     </div>
-    <div ng-model="$ctrl.post.created_at">
-      Posted: {{post.created_at}}
-    </div>
-    <button ng-click="$ctrl.postDelete(post.id)">Delete Post</button>
+    <!-- <div ng-model="$ctrl.post.created_at">
+      Posted: {{post.created_at | amCalendar}}
+    </div> -->
+    <button class="waves-effect waves-light btn"ui-sref="edit({ id:post.id})" id="myEdit">Edit Post</button>
+    &nbsp;&nbsp;&nbsp;
+    <button class = "waves-effect waves-light btn" ng-click="$ctrl.postDelete(post.id)" id="myDelete">Delete Post</button>
+    &nbsp;
+
   </div>
-  <br><br>
+
+&nbsp;
+</div>
 </div>
 <br>
-Create New Post
-<form name="$ctrl.postForm" ng-submit="$ctrl.createPost()">
-  <label for="title">Title</label>
-  <input id="title" class="form-control" required name="title" ng-model="$ctrl.post.title"><br>
-  <label for="description">Description</label>
-  <input id="description" class="form-control" required name="description" ng-model="$ctrl.post.description"><br>
-  <label for="price">Price</label>
-  <input id="price" class="form-control" required name="price" ng-model="$ctrl.post.price"><br>
-  <label for="image">Image URL</label>
-  <input id="image" class="form-control" required name="image" ng-model="$ctrl.post.image">
-  <button type="submit">Create Post</button>
-</form>
+<div class="title center">
+  <div>
+<h4>Create New Post</h4>
+<br>
+<div class="row col s6 m6 l6">
+  <div id="myForm">
+  <form name="$ctrl.postForm" ng-submit="$ctrl.createPost()">
+    <label for="title">Title</label>
+    <input id="title" class="form-control" required name="title" ng-model="$ctrl.post.title"><br>
+    <label for="description">Description</label>
+    <input id="description" class="form-control" required name="description" ng-model="$ctrl.post.description"><br>
+    <label for="price">Price</label>
+    <input id="price" class="form-control" required name="price" ng-model="$ctrl.post.price"><br>
+    <label for="image">Image URL</label>
+    <input id="image" class="form-control" required name="image" ng-model="$ctrl.post.image">
+    <br>
+    <button type="submit" class="btn" id="createPostbtn">Create Post</button>
+  </form>
+      &nbsp;&nbsp;
+  </div>
+</div>
+</div>
+</div>

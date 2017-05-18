@@ -1,14 +1,28 @@
-<div>
-<form name="$ctrl.editForm" ng-submit="$ctrl.editingForm()">
-  <label for="title">Title</label>
-  <input id="title" class="form-control" required name="title" ng-model="$ctrl.post.title">
-  <label for="description">Description</label>
-  <input id="description" class="form-control" required name="description" ng-model="$ctrl.post.description">
-  <label for="price">Price</label>
-  <input id="price" class="form-control" required name="price" ng-model="$ctrl.post.price">
-  <label for="item-image">Image</label>
-  <input id="item-image" class="form-control" required name="image" ng-model="$ctrl.post.image">
-  <button type="submit">Update</button>
-</form>
-<a ui-sref="home"><button type="button" name="back">Go Back</button></a>
+<br><br>
+<div class="container">
+  <div class="row">
+  <h3 class = "center title">Edit Post</h3>
+    <br>
+    <form novalidate name="$ctrl.editForm" ng-submit="$ctrl.editingForm()">
+        <div class="form-group" ng-class="{'has-error': $ctrl.postForm.title.$invalid}">
+            <label for="title">Title</label>
+            <input id="title" class="form-control" name="title" ng-model="$ctrl.post.title">
+        </div>
+        <div class="form-group" ng-class="{'has-error': $ctrl.postForm.body.$invalid}">
+            <label for="description">Description</label>
+            <input id="description" class="form-control" name="description" ng-model="$ctrl.post.description">
+        </div>
+        <div class="form-group" ng-class="{'has-error': $ctrl.postForm.author.$invalid}">
+        <label for="price">Price</label>
+        <input id="price" class="form-control" name="price" ng-model="$ctrl.post.price">
+      </div>
+      <div class="form-group"ng-class="{'has-error': $ctrl.postForm.image.$invalid}">
+        <label for="item-image">Image</label>
+        <input id="item-image" class="form-control" name="image" ng-model="$ctrl.post.image">
+      </div>
+        <button type="submit" class="btn">Update</button>
+    </form>
+    <br>
+    <a ui-sref="home"><button type="button" name="back" class="btn">Go Back</button></a>
+  </div>
 </div>

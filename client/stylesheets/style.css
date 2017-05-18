@@ -1,0 +1,42 @@
+.title {
+font-family: 'Merriweather', serif;
+background-color: white;
+}
+#createPostbtn:hover {
+  background-color: black;
+}
+
+#myForm {
+  text-align: center;
+  display: inline-block;
+  align-self: center;
+}
+html {
+  background-color: rgb(129, 165, 222);
+}
+.labels {
+  color:black;
+}
+.card-title {
+  font-family: 'Merriweather', serif;
+  font-size: 25px;
+}
+
+.desc {
+  font-size: 19px;
+}
+
+.card-panel {
+  border-radius: 50px;
+}
+#myEdit:hover {
+  background-color: black;
+}
+#myDelete:hover {
+  background-color: red;
+}
+@media (max-width: 700px) {
+  img {
+    columns: 1
+  }
+}
