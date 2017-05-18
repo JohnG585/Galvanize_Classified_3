@@ -1,0 +1,14 @@
+<div>
+<form name="$ctrl.editForm" ng-submit="$ctrl.editingForm()">
+  <label for="title">Title</label>
+  <input id="title" class="form-control" required name="title" ng-model="$ctrl.post.title">
+  <label for="description">Description</label>
+  <input id="description" class="form-control" required name="description" ng-model="$ctrl.post.description">
+  <label for="price">Price</label>
+  <input id="price" class="form-control" required name="price" ng-model="$ctrl.post.price">
+  <label for="item-image">Image</label>
+  <input id="item-image" class="form-control" required name="image" ng-model="$ctrl.post.image">
+  <button type="submit">Update</button>
+</form>
+<a ui-sref="home"><button type="button" name="back">Go Back</button></a>
+</div>
