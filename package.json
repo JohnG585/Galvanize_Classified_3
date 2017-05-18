@@ -7,10 +7,10 @@
     "node": "v7.7.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node ./server/bin/www",
     "test": "mocha",
     "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
-    "nodemon": "node server.js"
+    "nodemon": "node ./server/bin/www"
   },
   "keywords": [],
   "author": "",
