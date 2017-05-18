@@ -10,7 +10,7 @@
     "start": "node ./server/bin/www",
     "test": "mocha",
     "heroku-postbuild": "knex migrate:rollback; knex migrate:latest; knex seed:run;",
-    "nodemon": "node ./server/bin/www"
+    "nodemon": "node ./server/server.js"
   },
   "keywords": [],
   "author": "",
